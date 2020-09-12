@@ -42,10 +42,10 @@ export default {
   },
   data() {
     return {
-      numBoids: 5,
+      numBoids: 75,
       boids: {
-        width: 30,
-        height: 30,
+        width: 15,
+        height: 15,
         elements: [],
       },
       canvasWidth: 1800,
@@ -55,10 +55,11 @@ export default {
         cohesion: 0.8,
         separation: 1.5,
         maxForce: 0.1,
-        maxSpeed: 6,
+        maxSpeed: 5,
         vision: 100,
         colorBoid: "#fff",
-        colorBackground: "#5a67d8",
+        //colorBackground: "#5a67d8",
+        colorBackground: "#5c64ad",
       },
     };
   },
@@ -89,7 +90,11 @@ export default {
         const boid = this.boids.elements[i];
         boid.update(
           this.boids.elements.filter((b) => b !== boid),
-          this.controls
+          {
+            vision: this.controls.vision,
+            MaxSpeed: this.controls.maxSpeed,
+            MaxForce: this.controls.maxForce,
+          }
         );
         boid.move(this.controls.maxSpeed);
         boid.edges(width, height);
