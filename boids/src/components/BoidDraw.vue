@@ -15,12 +15,13 @@ export default {
     display() {
       const ctx = this.canvas.ctx;
       ctx.save();
-      // ctx.beginPath();
+      ctx.beginPath();
       // ctx.arc(this.position.x, this.position.y, this.width, 0, 2 * Math.PI);
       // ctx.stroke();
 
       ctx.translate(this.position.x, this.position.y);
 
+      //ctx.rotate()
       ctx.rotate(this.direction + Math.PI / 2);
 
       ctx.strokeStyle = this.color;
@@ -33,7 +34,7 @@ export default {
       ctx.lineTo(0, this.height / 3);
       ctx.stroke();
 
-      //ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.restore();
     },
   },

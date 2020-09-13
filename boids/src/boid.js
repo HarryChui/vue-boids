@@ -115,10 +115,10 @@ export default class Boid {
         return avg_vector
     }
 
-    update(flock, { vision, MaxSpeed, MaxForce }) {
-        const align = this.align(flock, { vision, MaxSpeed, MaxForce })
-        const centerofmass = this.center(flock, { vision, MaxSpeed, MaxForce }).multiplyScalar(0.1)
-        const separate = this.separation(flock, { vision, MaxSpeed, MaxForce }).multiplyScalar(0.5)
+    update(flock, { vision, MaxSpeed, MaxForce, alignment, cohesion, sep }) {
+        const align = this.align(flock, { vision, MaxSpeed, MaxForce }).multiplyScalar(alignment)
+        const centerofmass = this.center(flock, { vision, MaxSpeed, MaxForce }).multiplyScalar(cohesion)
+        const separate = this.separation(flock, { vision, MaxSpeed, MaxForce }).multiplyScalar(sep)
         this.acceleration
             .add(align)
             .add(centerofmass)
