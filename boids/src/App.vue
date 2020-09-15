@@ -65,23 +65,23 @@ export default {
   },
   data() {
     return {
-      NumberOfBoids: 75,
+      NumberOfBoids: 50,
       colorBoid: "#fff",
       colorBackground: "#5c64ad",
       boids: {
-        width: 15,
-        height: 15,
+        width: 20,
+        height: 20,
         elements: [],
       },
       canvasWidth: window.innerWidth,
       canvasHeight: window.innerHeight,
       controls: {
         Alignment: 2.0,
-        Cohesion: 1.5,
-        Separation: 1.5,
+        Cohesion: 1.3,
+        Separation: 1.4,
         Max_Force: 0.1,
         Max_Speed: 5,
-        Vision: 100,
+        Vision: 75,
       },
       panel_info: {
         show: true,
